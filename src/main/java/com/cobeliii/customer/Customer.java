@@ -1,11 +1,22 @@
 package com.cobeliii.customer;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+import static jakarta.persistence.GenerationType.SEQUENCE;
+
+@Entity
 public class Customer {
+    @Id
+    @SequenceGenerator(name = "customer_id_sequence", sequenceName = "customer_id_sequence")
+    @GeneratedValue(strategy = SEQUENCE, generator = "customer_id_sequence")
     private Integer id;
+    @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "age", nullable = false)
     private Integer age;
 
     public Customer() {
