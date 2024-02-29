@@ -51,35 +51,62 @@ class CustomerDataAccessServiceTest {
     @Test
     void itShouldInsertCustomer() {
         //Arrange
+        Customer customer = new Customer("Newton", "newton@gmail.com", 28);
+
         //Act
+        underTest.insertCustomer(customer);
+
         //Assert
+        Mockito.verify(customerRepository).save(customer);
     }
 
     @Test
     void itShouldExistsPersonWithEmail() {
         //Arrange
+        Customer customer = new Customer("Newton", "newton@gmail.com", 28);
+
         //Act
+        underTest.existsPersonWithEmail(customer.getEmail());
+
         //Assert
+        Mockito.verify(customerRepository).existsCustomerByEmail(customer.getEmail());
     }
 
     @Test
     void itShouldExistsPersonWithId() {
         //Arrange
+        Customer customer = new Customer("Newton", "newton@gmail.com", 28);
+
         //Act
+        underTest.existsPersonWithId(customer.getId());
+
         //Assert
+        Mockito.verify(customerRepository).existsCustomerById(customer.getId());
     }
 
     @Test
     void itShouldDeleteCustomerById() {
+
         //Arrange
+        int id = 1;
+
         //Act
+        underTest.deleteCustomerById(id);
+
         //Assert
+
+        Mockito.verify(customerRepository).deleteById(id);
     }
 
     @Test
     void itShouldUpdateCustomer() {
         //Arrange
+        Customer customer = new Customer(1, "Newton", "newton@gmail.com", 28);
+
         //Act
+        underTest.updateCustomer(customer);
+
         //Assert
+        Mockito.verify(customerRepository).save(customer);
     }
 }
