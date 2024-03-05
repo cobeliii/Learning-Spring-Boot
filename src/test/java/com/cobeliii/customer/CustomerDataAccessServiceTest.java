@@ -1,14 +1,11 @@
 package com.cobeliii.customer;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerDataAccessServiceTest {
 
@@ -66,7 +63,7 @@ class CustomerDataAccessServiceTest {
         Customer customer = new Customer("Newton", "newton@gmail.com", 28);
 
         //Act
-        underTest.existsPersonWithEmail(customer.getEmail());
+        underTest.existsCustomerWithEmail(customer.getEmail());
 
         //Assert
         Mockito.verify(customerRepository).existsCustomerByEmail(customer.getEmail());
@@ -78,7 +75,7 @@ class CustomerDataAccessServiceTest {
         Customer customer = new Customer("Newton", "newton@gmail.com", 28);
 
         //Act
-        underTest.existsPersonWithId(customer.getId());
+        underTest.existsCustomerById(customer.getId());
 
         //Assert
         Mockito.verify(customerRepository).existsCustomerById(customer.getId());
