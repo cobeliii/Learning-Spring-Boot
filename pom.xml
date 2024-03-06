@@ -66,6 +66,18 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.cobeliii</groupId>
+            <artifactId>spring-boot-example</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>3.3.0.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
